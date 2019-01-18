@@ -25,6 +25,7 @@ public class TrackServiceimpl implements TrackService{
             throw new TrackalreadyExistsException("track already exists exception");
         }
         Track savedTrack=trackRepository.save(track);
+
         return savedTrack;
     }
 
@@ -39,6 +40,27 @@ public class TrackServiceimpl implements TrackService{
             throw new TrackDoesNotExistException("track does not exist");
         }
         return trackRepository.findById(trackId).get();
+
+    }
+
+    @Override
+    public Track getTrackbyName(String trackName) throws TrackDoesNotExistException {
+//        Track track=trackName.
+//        if(!(trackRepository.existsById())){
+//            throw new TrackDoesNotExistException("track does not exist");
+//        }
+        return trackRepository.findbyTrackName(trackName);
+
+    }
+
+    @Override
+    public Track getTrackbyComment(String comment) throws TrackDoesNotExistException {
+//        Track track=trackName.
+//        if(!(trackRepository.existsById())){
+//            throw new TrackDoesNotExistException("track does not exist");
+//        }
+        return trackRepository.findbyComment(comment);
+
     }
 
     @Override

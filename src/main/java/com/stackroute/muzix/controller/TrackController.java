@@ -33,12 +33,37 @@ public class TrackController {
     public  ResponseEntity<?> getAllTracks(){
         return new ResponseEntity<>(trackService.getAllTracks(),HttpStatus.OK);
     }
+
 // localhost:8082/api/v3/trackbyId?trackId=1
     @GetMapping("trackbyId")
     public ResponseEntity<?> getTrackbyid(@RequestParam int trackId){
         ResponseEntity<?> responseEntity;
         try{
             Track track=trackService.getTrack(trackId);
+            responseEntity=new ResponseEntity<Track>(track,HttpStatus.OK);
+        }catch (Exception e){
+            responseEntity=new ResponseEntity<String >(e.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
+
+    @GetMapping("trackbyName")
+    public ResponseEntity<?> getTrackbyName(@RequestParam String trackName){
+        ResponseEntity<?> responseEntity;
+        try{
+            Track track=trackService.getTrackbyName(trackName);
+            responseEntity=new ResponseEntity<Track>(track,HttpStatus.OK);
+        }catch (Exception e){
+            responseEntity=new ResponseEntity<String >(e.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
+
+    @GetMapping("trackbyComment")
+    public ResponseEntity<?> getTrackbyComment(@RequestParam String comment){
+        ResponseEntity<?> responseEntity;
+        try{
+            Track track=trackService.getTrackbyComment(comment);
             responseEntity=new ResponseEntity<Track>(track,HttpStatus.OK);
         }catch (Exception e){
             responseEntity=new ResponseEntity<String >(e.getMessage(),HttpStatus.CONFLICT);
