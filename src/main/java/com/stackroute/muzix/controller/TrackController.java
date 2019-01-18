@@ -1,6 +1,7 @@
 package com.stackroute.muzix.controller;
 
 import com.stackroute.muzix.domain.Track;
+import com.stackroute.muzix.exceptions.TrackListEmptyException;
 import com.stackroute.muzix.service.TrackService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,8 +44,11 @@ public class TrackController {
     }
     )
     @GetMapping("track")
-    public  ResponseEntity<?> getAllTracks(){
-        return new ResponseEntity<>(trackService.getAllTracks(),HttpStatus.OK);
+    public  ResponseEntity<?> getAllTracks() throws TrackListEmptyException{
+
+        if(trackService.getAllTracks().isEmpty()){
+            throw new TrackListEmptyException("Track repository is empty");
+        }return new ResponseEntity<>(trackService.getAllTracks(),HttpStatus.OK);
     }
 
     @ApiOperation(value = "Returns the track requested by user")
