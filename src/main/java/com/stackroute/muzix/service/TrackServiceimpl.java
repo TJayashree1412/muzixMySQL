@@ -42,14 +42,14 @@ public class TrackServiceimpl implements TrackService{
         return trackRepository.findById(trackId).get();
 
     }
-
+/*
     @Override
     public Track getTrackbyName(String trackName) throws TrackDoesNotExistException {
 //        Track track=trackName.
 //        if(!(trackRepository.existsById())){
 //            throw new TrackDoesNotExistException("track does not exist");
 //        }
-        return trackRepository.findbyTrackName(trackName);
+        return trackRepository.findByName(trackName);
 
     }
 
@@ -59,9 +59,9 @@ public class TrackServiceimpl implements TrackService{
 //        if(!(trackRepository.existsById())){
 //            throw new TrackDoesNotExistException("track does not exist");
 //        }
-        return trackRepository.findbyComment(comment);
+        return trackRepository.findByComment(comment);
 
-    }
+    }*/
 
     @Override
     public Track updateTrack(Track track) throws TrackDoesNotExistException{

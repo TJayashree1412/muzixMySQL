@@ -51,6 +51,7 @@ public class TrackController {
 
         return new ResponseEntity<Track>(track,HttpStatus.OK);
     }
+/*
 
     @GetMapping("trackbyName")
     public ResponseEntity<?> getTrackbyName(@RequestParam String trackName) throws TrackDoesNotExistException{
@@ -65,6 +66,7 @@ public class TrackController {
         Track track=trackService.getTrackbyComment(comment);
         return new ResponseEntity<Track>(track,HttpStatus.OK);
     }
+*/
 
     @PutMapping("track")
     public ResponseEntity<?> updateTrack(@RequestBody Track track) throws TrackDoesNotExistException {

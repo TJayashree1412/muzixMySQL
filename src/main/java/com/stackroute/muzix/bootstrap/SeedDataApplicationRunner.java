@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class SeedDataApplicationRunner implements ApplicationRunner {
     private TrackRepository trackRepository;
 
@@ -19,10 +20,10 @@ public class SeedDataApplicationRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
 
-            Track track1=new Track("alone","alan walker");
-            Track track2=new Track("roar","katy perry");
-            Track track3=new Track("apna time aayega","gully boy");
-            Track track4=new Track("love story","taylor swift");
+            Track track1=new Track(1,"alone","alan walker");
+            Track track2=new Track(2,"roar","katy perry");
+            Track track3=new Track(3,"apna time aayega","gully boy");
+            Track track4=new Track(4,"love story","taylor swift");
             trackRepository.save(track1);
             trackRepository.save(track2);
             trackRepository.save(track3);

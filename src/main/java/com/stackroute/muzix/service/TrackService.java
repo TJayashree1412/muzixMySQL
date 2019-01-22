@@ -10,10 +10,12 @@ public interface TrackService {
     public Track saveTrack(Track track) throws TrackalreadyExistsException;
 
     public Track getTrack(int trackId) throws TrackDoesNotExistException;
+/*
 
     public Track getTrackbyName(String trackName) throws TrackDoesNotExistException;
 
     public Track getTrackbyComment(String comment) throws TrackDoesNotExistException;
+*/
 
     public List<Track> getAllTracks();
 
